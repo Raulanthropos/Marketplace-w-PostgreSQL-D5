@@ -131,16 +131,4 @@ productsRouter.get("/:productId/reviews", async (req, res, next) => {
   }
 });
 
-productsRouter.put("/:productId/editCategory", async (req, res, next) => {
-  try {
-    const { id } = await ProductsCategoriesModel.create({
-      productId: req.params.productId,
-      categoryId: req.body.categoryId,
-    });
-    res.status(201).send({ id });
-  } catch (error) {
-    next(error);
-  }
-});
-
 export default productsRouter;
